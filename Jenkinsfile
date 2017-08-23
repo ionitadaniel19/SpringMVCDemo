@@ -20,6 +20,9 @@ env.BN = VersionNumber([
         def W_GIT_HOME = tool 'GitLin'
         sh "${W_GIT_HOME} checkout -b release_${BN}"
 		
+		echo 'Stash the project source code ...'
+        stash includes: '**', excludes: '**/TestPlan.jmx', name: 'SOURCE_CODE'
+		
   }
 }
 
