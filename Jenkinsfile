@@ -14,7 +14,7 @@ env.BN = VersionNumber([
 		
 		echo 'Change the project version ...'
         def W_M2_HOME = tool 'Maven3.3.9'
-        bat "${W_M2_HOME}\\bin\\mvn versions:set -DnewVersion=$BN -DgenerateBackupPoms=false" 
+        sh "${W_M2_HOME}/bin/mvn versions:set -DnewVersion=$BN -DgenerateBackupPoms=false" 
   }
 }
 
