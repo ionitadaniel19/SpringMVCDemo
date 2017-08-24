@@ -26,7 +26,7 @@ env.BN = VersionNumber([
   }
 }
 
-node ("TestMachine-ut") {
+node ("JenkinsDockerAgentTest") {
         env.M2_HOME = '/usr/share/maven'
         env.JAVA_HOME = '/usr'	 
         
