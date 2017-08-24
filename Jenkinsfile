@@ -26,3 +26,19 @@ env.BN = VersionNumber([
   }
 }
 
+node ("TestMachine-ut") {
+        env.M2_HOME = '/usr/share/maven'
+        env.JAVA_HOME = '/usr'	 
+        
+        stage('Run-ut') {   
+                echo 'Unstash the project source code ...'
+                unstash 'SOURCE_CODE'	                                                       
+                                
+                echo 'Run the unit tests (and Jacoco) ...'
+                sh "'${M2_HOME}/bin/mvn' clean test"   
+		}
+}
+
+
+
+
