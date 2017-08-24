@@ -37,7 +37,7 @@ node ("JenkinsDockerAgentTest") {
                 unstash 'SOURCE_CODE'	                                                       
                                 
 				echo 'installing certificates for ubuntul java'				
-				sh 'sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure'
+				sh '/var/lib/dpkg/info/ca-certificates-java.postinst configure'
 								
                 echo 'Run the unit tests (and Jacoco) ...'
                 sh "'${M2_HOME}/bin/mvn' clean test"   
