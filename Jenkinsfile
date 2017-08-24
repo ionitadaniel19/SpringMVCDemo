@@ -26,8 +26,7 @@ env.BN = VersionNumber([
   }
 }
 
-JenkinsDockerAgentTest
-JenkinsDockerAgentTest
+
 
 node ("JenkinsDockerAgentTest") {
         env.M2_HOME = '/usr/share/maven'
@@ -35,11 +34,11 @@ node ("JenkinsDockerAgentTest") {
         
         stage('Run-ut') {   
                 echo 'Unstash the project source code ...'
-                unstash 'SOURCE_CODE'	                      
-
-				echo 'installing missing certificates for ubuntu java'
-				sh 'sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure'
+                unstash 'SOURCE_CODE'	                                                       
                                 
+				echo 'installing certificates for ubuntul java'				
+				sh 'sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure'
+								
                 echo 'Run the unit tests (and Jacoco) ...'
                 sh "'${M2_HOME}/bin/mvn' clean test"   
 		}
